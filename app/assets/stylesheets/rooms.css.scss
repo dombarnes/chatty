@@ -1,0 +1,19 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.room_comments {
+	width:100%;
+	padding:6px;
+}
+.room_comment {
+	float:left;
+	padding-top:8px;
+	width:70%;
+}
+.room_comments_date {
+	float:right;
+	padding-top:8px;
+	padding-right:8px;
+	width:30%;
+}
