@@ -30,18 +30,17 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
-
-    <div class="navbar navbar-fluid-top">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="navbar-inner">
-        <div class="container-fluid">
+        <div class="container">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="/">Chatty</a>
-          <div class="container-fluid nav-collapse">
-            <ul class="nav">
+          <div class="container nav-collapse collapse">
+            <ul class="navbar-nav nav">
               <li><%= link_to "New Room", new_room_path  %></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -49,29 +48,35 @@
       </div>
     </div>
 
-    <div class="container-fluid">
-      <h1>Chatty <small>Start a quick chat</small></h1>
-      <div class="row-fluid">
-        <div class="span9">
+    <div class="container">
+      <h1>Chatty <small class="hidden-xs">Start a quick chat</small></h1>
+      <div class="row">
+        <div class="col-xs-12 col-md-8">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
 
-        <div class="span3">
+        <div class=" hidden-xs col-md-4">
           <div class="well sidebar-nav">
+              <h2>About Chatty</h2>
+              <p>Chatty is a simple chat room. Just create a new room, give your friends the link and start chatting.</p>
             <ul class="nav nav-list">
               <li class="nav-header"></li>
-              <h2>Sidebar</h2>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
 
-      <footer>
-        <p>&copy; Dom Barnes 2014</p>
-      </footer>
+      </div> <!-- /row -->
 
-    </div> <!-- /container -->
 
-  </body>
+  </div> <!-- /container -->
+  <footer class="page-footer">
+    <div class="container">
+      <ul class="navbar-nav nav">
+        <li>&copy; Dom Barnes 2014</li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
 </html>
