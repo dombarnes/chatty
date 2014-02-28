@@ -7,7 +7,7 @@ class Room < ActiveRecord::Base
 
 	def generate_token
       begin
-        self.uid = SecureRandom.hex(3).upcase
+        self.uid = SecureRandom.hex(3).downcase
       end while self.class.exists?(uid)
       # self.token = loop do
       #   random_token = SecureRandom.urlsafe_base64(nil, false)
