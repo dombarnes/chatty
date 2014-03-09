@@ -1,7 +1,7 @@
 Chatty::Application.routes.draw do
-  resources :rooms
+  resources :rooms, path: 'r'
   resources :comments
-  resources :rooms do
+  resources :rooms, path: 'r' do
     resource :comments, only: [:new, :create, :destroy]
   end
 
