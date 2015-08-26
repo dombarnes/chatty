@@ -1,14 +1,17 @@
 class RoomsController < ApplicationController
   # include Tokenable
-
-  before_action :set_room, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_room, only: [:show, :edit, :update, :destroy, :search]
 
   def index
-    @rooms = Room.all
+    if params[:search]
+      @rooms = Room.search(params[:search]).order("created_at DESC")
+    else
+      @rooms = Room.all.order('created_at DESC')
+    end
   end
 
   def show
+    # @room = Room.find(params[:room_params])
     @new_comment = Comment.new
   end
 
@@ -54,7 +57,7 @@ class RoomsController < ApplicationController
   end
 
   def add
-    comment = Room.find(params[:id]).comments.create(params[:comment])
+    @comment = Room.find(params[:id]).comments.create(params[:comment])
     redirect_to :action => 'show'
   end
 
@@ -64,10 +67,15 @@ class RoomsController < ApplicationController
    redirect_to :action => "show", :id => params[:id]
   end
 
+  def search
+    # @room = Room.find_by_uid(params[:query])
+    redirect_to :action => 'show', :uid => params[:uid]
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
-      @room = Room.find(params[:id])
+      @room = Room.find_by_uid(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

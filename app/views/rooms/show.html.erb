@@ -1,7 +1,7 @@
 <h2><%= @room.title %></h2>
 <p>You can access your room in the future with the code <%= @room.uid %></p>
 
-<p><%= link_to 'New Comment', new_room_comments_path(@room), :class => "btn btn-primary"%></p>
+<p><%= link_to 'New Comment', new_room_comments_path(@room), :class => "btn btn-primary" %></p>
 <h4>Comments</h4>
 	<div class="room_content">
     <% for comment in @room.comments %>

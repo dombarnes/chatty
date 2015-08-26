@@ -20,8 +20,8 @@ development:
   database: chatty_development
   host: localhost
   pool: 5
-  username: chatty
-  password: password1
+  username: domster83
+  password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have

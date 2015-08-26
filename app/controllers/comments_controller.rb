@@ -4,15 +4,16 @@ class CommentsController < ApplicationController
   before_filter :load_parent
 
   def new
-    @comment = Comment.new
+    @comment = Comment.new(name: cookies[:commenter_name])
     @comment = @room.comments.new
   end
 
   def create
     @comment = @room.comments.new(comment_params)
-
     respond_to do |format|
       if @comment.save
+        flash[:notice] = "Comment posted!"
+        cookies[:commenter_name] = @comment.name
         format.html { redirect_to @room, notice: 'Comment added.' }
         format.json { redirect_to @room } #, status: :created, location: @comment }
       else

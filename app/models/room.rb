@@ -5,6 +5,17 @@ class Room < ActiveRecord::Base
 
 	before_create :generate_token
 
+
+  def self.search(query)
+    where("uid like ?", "%#{query}%")
+    # where(:uid , query)
+  end
+
+  def to_param
+    uid
+  end
+
+protected
 	def generate_token
       begin
         self.uid = SecureRandom.hex(3).downcase
