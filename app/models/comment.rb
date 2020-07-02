@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-	belongs_to :room, :polymorphic => true
+	belongs_to :room, :polymorphic => false
 
 	validates_presence_of :comment, :name
 

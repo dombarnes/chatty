@@ -3,8 +3,13 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy, :search]
 
   def index
-    if params[:search]
-      @rooms = Room.search(params[:search]).order("created_at DESC")
+    if params[:q]
+      @room = Room.find_by(uid: params[:q])
+      if @room
+        redirect_to @room
+      else 
+        flash.notice = "Room ID not found. Please check and try again"
+      end
     else
       @rooms = Room.all.order('created_at DESC')
     end
@@ -80,6 +85,6 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:title, :uid)
+      params.require(:room).permit(:room, :title, :uid)
     end
 end

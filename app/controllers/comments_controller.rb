@@ -1,18 +1,18 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :destroy]
 
-  before_filter :load_parent
+  before_action :load_parent
 
   def new
-    @comment = Comment.new(name: cookies[:commenter_name])
-    @comment = @room.comments.new
+    # @comment = Comment.new(name: cookies[:commenter_name])
+    @comment = @room.comments.new(name: cookies[:commenter_name])
   end
 
   def create
     @comment = @room.comments.new(comment_params)
     respond_to do |format|
       if @comment.save
-        flash[:notice] = "Comment posted!"
+        flash.notice = "Comment posted!"
         cookies[:commenter_name] = @comment.name
         format.html { redirect_to @room, notice: 'Comment added.' }
         format.json { redirect_to @room } #, status: :created, location: @comment }
@@ -51,6 +51,6 @@ class CommentsController < ApplicationController
     end
 
     def load_parent
-      @room = Room.find(params[:room_id])
+      @room = Room.find_by(uid: params[:room_id])
     end
 end

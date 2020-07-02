@@ -2,7 +2,7 @@
 <%= link_to 'New Room', new_room_path, :class => "btn btn-primary" %>
 <p>Or join an existing room</p>
 
-<%= form_tag(rooms_path, :method => "post", class: "navbar-form", id: "search-form") do %>
-	<%= text_field_tag :uid, params[:uid], placeholder: "Enter code" %>
+<%= form_tag(rooms_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+	<%= text_field_tag :q, params[:q], placeholder: "Enter code" %>
 	<%= submit_tag 'Go', :class => "btn btn-secondary"%>
 <% end %>
