@@ -12,8 +12,6 @@ import '../../assets/stylesheets/application.scss'
 
 import './bootstrap_custom.js'
 
-
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
