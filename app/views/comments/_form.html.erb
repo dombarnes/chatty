@@ -12,12 +12,13 @@
   <% end %>
 
   <div class="field">
-    <% if @comment.name.empty? %>
+    <% if @comment.name.blank? %>
       <%= f.label :name %><br>
       <%= f.text_field :name %>
     <% else %>
       <%= f.label :name %><br>
       <%= f.label @comment.name %>
+      <%= f.hidden_field :name %>
     <% end %>      
   </div>
   <div class="field">
