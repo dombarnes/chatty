@@ -16,6 +16,7 @@
 
 @import "bootstrap_custom" ;
 
+
 .page-footer {
 	padding-top:80px;
 	padding-bottom:10px;
@@ -30,4 +31,19 @@ body {
 input[type=text] {
 	line-height: 1.2;
 	padding: 6px 12px;
+}
+
+.day   { background: #eee; color: black; }
+.night { background: #333; color: white; }
+
+@media (prefers-color-scheme: dark) {
+  body { background-color: #00475a; color: white }
+  .day.dark-scheme   { background:  #333; color: white; }
+  .night.dark-scheme { background: black; color:  #ddd; }
+}
+
+@media (prefers-color-scheme: light) {
+  body { background-color: white; color: black }
+  .day.light-scheme   { background: white; color:  #555; }
+  .night.light-scheme { background:  #eee; color: black; }
 }

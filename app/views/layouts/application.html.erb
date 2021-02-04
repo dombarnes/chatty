@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title><%= content_for?(:title) ? yield(:title) : "Chatty" %></title>
+    <title><%= content_for?(:title) ? yield(:title) + " - Chatty" : "Chatty" %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
